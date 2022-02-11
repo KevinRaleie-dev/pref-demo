@@ -196,7 +196,7 @@ function App() {
                   <Modal
                   isOpen={isOpen}
                   onClose={onClose}
-                  isCentered
+                  // isCentered
                   closeOnOverlayClick={false}
                   motionPreset="slideInBottom"
                   >
