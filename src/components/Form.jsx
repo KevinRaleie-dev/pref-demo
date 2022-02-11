@@ -84,12 +84,12 @@ export const Form = () => {
 
     return (
         <>
-            <Text
+            {/* <Text
             fontWeight="light"
             fontSize="5xl"
             >
               Communication Preferences
-            </Text>
+            </Text> */}
             <Text
             color="gray.500"
             >
