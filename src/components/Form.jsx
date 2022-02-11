@@ -29,7 +29,8 @@ const recaptchaSiteKey = '6LeIxAcTAAAAAJcZVRqyHh71UMIEGNQ_MXjiZKhI'
 
 export const Form = () => {
 
-    const { onClose, onOpen, isOpen } = useDisclosure()
+    const { onClose, onOpen, isOpen } = useDisclosure();
+    const [error, setError] = React.useState('')
 
     const { register, handleSubmit, formState : { errors, isSubmitting }} = useForm();
 
@@ -70,7 +71,7 @@ export const Form = () => {
                 setPartyID(userData.partyID);
             }
         } catch (error) {
-            console.log(error);
+            setError(error)
         }
         
     }
@@ -171,14 +172,19 @@ export const Form = () => {
             <Modal
             isCentered
             isOpen={isOpen} onClose={onClose}>
-                <ModalOverlay />
+                {/* <ModalOverlay /> */}
                 <ModalContent>
                 <ModalHeader>Oops!</ModalHeader>
                 <ModalCloseButton />
                 <ModalBody>
+                    {error ? 
+                    <Text>
+                        {error}
+                    </Text> : 
                     <Text>
                         We could not find the account you were looking for, please try again.
-                    </Text>
+                    </Text>            
+                    }
                 </ModalBody>
 
                 <ModalFooter>                    
